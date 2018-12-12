@@ -17,25 +17,25 @@ DeviceType=$2
                         if [[ $DeviceType = "FirewallJuniper" ]]; then
                         #some command                 
                         echo "Device is a $DeviceType"
-                        echo "ssh $DeviceIP">>LocalIPlist
+                        echo "ssh $DeviceIP">>./TEMPlist.log
                         fi
 
                         if [[ $DeviceType = "Switch" ]]; then
 			                  #some command
                         echo "Device is a $DeviceType"
-                        echo "ssh $DeviceIP">>LocalIPlist
+                        echo "ssh $DeviceIP">>./TEMPlist.log
                         fi
 
 
                         if [[ $DeviceType = "F5" ]]; then
 			                    #some command
                         echo "Device is a $DeviceType"
-                        echo "ssh $DeviceIP">>LocalIPlist
+                        echo "ssh $DeviceIP">>./TEMPlist.log
                         fi
 
                         if [[ $DeviceType = "Juniper" ]]; then
 			                  #some command
                         echo "Device is a $DeviceType"
-                        echo "ssh $DeviceIP">>LocalIPlist
+                        echo "ssh $DeviceIP">>./TEMPlist.log
                         fi
                 fi
