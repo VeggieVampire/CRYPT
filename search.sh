@@ -36,4 +36,5 @@ DeviceType=$(echo $x|awk '{print $3$4$5$6$7}')
 echo "$DeviceName using $DeviceIP is a $DeviceType"
 ./send.sh $DeviceIP $DeviceType
 
+sed -e "s/^/$DeviceName../" TEMPlist.log >>./LocalIPlist
 done
