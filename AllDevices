@@ -1,0 +1,5 @@
+127.0.0.1   COOLSERVERNAME1      Switch  Cisco
+127.0.0.1   COOLSERVERNAME2      Load Balancer   F5 Networks
+127.0.0.1   COOLSERVERNAME3     Firewall        Cisco
+127.0.0.1   COOLSERVERNAME4      Switch  HP
+127.0.0.1   COOLSERVERNAME5   Firewall        Juniper
