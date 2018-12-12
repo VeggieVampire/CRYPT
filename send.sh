@@ -1,11 +1,13 @@
-DeviceIP=$1
+DeviceIPname=$1
 DeviceType=$2
+$LOGIN=$3
+$PASSz=$4
 
    #missing Device type?
                 if [[ $DeviceType = "" ]]; then
                         echo "You are missing the Device type!"
                         echo "example:"
-                        echo "./send.sh 127.0.0.1 deviceType"
+                        echo "./send.sh DeviceIPname DeviceType LOGIN PASSWORD"
                         exit 1
                         break
                         exit 1
@@ -17,25 +19,20 @@ DeviceType=$2
                         if [[ $DeviceType = "FirewallJuniper" ]]; then
                         #some command                 
                         echo "Device is a $DeviceType"
-                        echo "ssh $DeviceIP">>./TEMPlist.log
+                        ./juniper.exp $LOGIN $DeviceIPname $PASSz >>./TEMPlist.log
                         fi
 
                         if [[ $DeviceType = "Switch" ]]; then
 			                  #some command
                         echo "Device is a $DeviceType"
-                        echo "ssh $DeviceIP">>./TEMPlist.log
+                        echo "ssh $DeviceIPname">>./TEMPlist.log
                         fi
 
 
                         if [[ $DeviceType = "F5" ]]; then
 			                    #some command
                         echo "Device is a $DeviceType"
-                        echo "ssh $DeviceIP">>./TEMPlist.log
+                        echo "ssh $DeviceIPname">>./TEMPlist.log
                         fi
 
-                        if [[ $DeviceType = "Juniper" ]]; then
-			                  #some command
-                        echo "Device is a $DeviceType"
-                        echo "ssh $DeviceIP">>./TEMPlist.log
-                        fi
                 fi
