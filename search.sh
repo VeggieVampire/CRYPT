@@ -10,6 +10,13 @@ GREEN='\033[0;32m'      #GREEN
 YELLOW='\033[0;33m'     #YELLOW
 NC='\033[0m'    #No Color
 
+echo "What is your login?"
+#read LOGIN
+LOGIN="yourlogin"
+
+echo "What is your password?"
+#read PASSz
+PASSz="yourpassword"
 
 echo "What IP are you looking for?"
 #read SearchIP
@@ -34,7 +41,12 @@ DeviceIP=$(echo $x|awk '{print $1}')
 DeviceName=$(echo $x|awk '{print $2}')
 DeviceType=$(echo $x|awk '{print $3$4$5$6$7}')
 echo "$DeviceName using $DeviceIP is a $DeviceType"
-./send.sh $DeviceIP $DeviceType
 
-sed -e "s/^/$DeviceName../" TEMPlist.log >>./LocalIPlist
+#ForIPbase
+./send.sh $DeviceIP $DeviceType $LOGIN $PASSz
+
+#ForDeviceNameBase
+#./send.sh $DeviceName $DeviceType $LOGIN $PASSz
+
+sed -e "s/^/$DeviceName.../" TEMPlist.log >>./LocalIPlist
 done
