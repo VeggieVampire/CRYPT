@@ -26,7 +26,8 @@ expect {
 expect {
         "$DEVICE line 1" { puts "You are connected to $DEVICE"}
         }
-
+#YOUR COMMANDS YOU WANT TO RUN
+#send -- "arp\r"
 send -- "show clock\r"
 
 send -- "exit\r"
