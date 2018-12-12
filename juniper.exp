@@ -1,0 +1,35 @@
+#!/usr/bin/expect -f
+#set multiPrompt {[#>$] }
+#exp_internal 1
+set LOGIN [lindex $argv 0];
+set DEVICE [lindex $argv 1];
+set PASSz [lindex $argv 2];
+set timeout 1
+set force_conservative 1  ;# set to 1 to force conservative mode even if
+
+if {$force_conservative} {
+        set send_slow {1 .1}
+        proc send {ignore arg} {
+                sleep .1
+                exp_send -s -- $arg
+        }
+}
+
+
+spawn ssh $LOGIN@DEVICE
+match_max 100000
+log_file -noappend output.log
+expect {
+        "Password:" { send -- "$PASSz\r" }
+        }
+
+expect {
+        "$DEVICE line 1" { puts "You are connected to $DEVICE"}
+        }
+
+send -- "show clock\r"
+
+send -- "exit\r"
+expect {
+        "closed by remote host." { send -- "You have exited device $DEVICE" }
+        }
